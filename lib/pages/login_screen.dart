@@ -2,6 +2,7 @@
 
 import 'dart:convert';
 
+import 'package:abp_tubes_2/tubes_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 
 // import '../Services/auth_services.dart';
@@ -33,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (BuildContext context) => const HomeScreen(),
+              builder: (BuildContext context) => const TubesBottomNavBar(),
             ));
       } else {
         // ignore: use_build_context_synchronously
