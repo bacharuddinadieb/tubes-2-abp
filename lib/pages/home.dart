@@ -14,12 +14,12 @@ class Home {
 
   const Home(
       {required this.id,
-        required this.nama,
-        required this.gambar,
-        required this.deskripsi,
-        required this.alamat,
-        required this.latitude,
-        required this.longitude});
+      required this.nama,
+      required this.gambar,
+      required this.deskripsi,
+      required this.alamat,
+      required this.latitude,
+      required this.longitude});
 
   factory Home.fromJson(Map<String, dynamic> json) {
     return Home(
@@ -83,9 +83,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           style: TextStyle(
                               fontWeight: FontWeight.w500, fontSize: 24),
                         ),
-                        Text(data!.alamat),
+                        Text(
+                          data!.alamat,
+                        ),
                         Container(
-                          margin: EdgeInsets.only(top: 12),
+                          margin: EdgeInsets.only(top: 2),
                           child: Text(data!.deskripsi),
                         )
                       ],
