@@ -1,5 +1,6 @@
 import 'package:abp_tubes_2/models/room.dart';
 import 'package:abp_tubes_2/pages/detailkamar.dart';
+import 'package:abp_tubes_2/services/globals.dart';
 import 'package:abp_tubes_2/services/roomservices.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -12,7 +13,7 @@ class KamarScreen extends StatefulWidget {
 }
 
 class _KamarScreenState extends State<KamarScreen> {
-  final String baseUrl = 'http://192.168.1.100:8000/';
+  final String baseUrl = URL;
   var dateNow = DateTime.now();
   late DateTime dateTo;
   bool onLoading = true;
@@ -127,8 +128,15 @@ class _KamarScreenState extends State<KamarScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const DetailKamar()),
-                            );
+                                builder: (context) => DetailKamar(
+                                  room: listRoom[index],
+                                  dateFrom: dateNow,
+                                  dateTo: dateTo,
+                                ),
+                              ),
+                            ).then((value) {
+                              if (value) _getListRoom();
+                            });
                           },
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,

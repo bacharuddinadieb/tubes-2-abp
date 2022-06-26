@@ -49,7 +49,6 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 32, 32, 228),
           centerTitle: true,
           elevation: 0,
           title: const Text(
@@ -60,48 +59,50 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            children: [
-              Image.asset(
-                'assets/images/login.jpg',
-                height: 250,
-                width: 250,
-                colorBlendMode: BlendMode.darken,
-                fit: BoxFit.fitWidth,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              TextField(
-                decoration: const InputDecoration(
-                  hintText: 'Enter your email',
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              children: [
+                Image.asset(
+                  'assets/images/login.jpg',
+                  height: 250,
+                  width: 250,
+                  colorBlendMode: BlendMode.darken,
+                  fit: BoxFit.fitWidth,
                 ),
-                onChanged: (value) {
-                  _email = value;
-                },
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              TextField(
-                obscureText: true,
-                decoration: const InputDecoration(
-                  hintText: 'Enter your password',
+                const SizedBox(
+                  height: 20,
                 ),
-                onChanged: (value) {
-                  _password = value;
-                },
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              RoundedButton(
-                btnText: 'LOG IN',
-                onBtnPressed: () => loginPressed(),
-              )
-            ],
+                TextField(
+                  decoration: const InputDecoration(
+                    hintText: 'Enter your email',
+                  ),
+                  onChanged: (value) {
+                    _email = value;
+                  },
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  obscureText: true,
+                  decoration: const InputDecoration(
+                    hintText: 'Enter your password',
+                  ),
+                  onChanged: (value) {
+                    _password = value;
+                  },
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                RoundedButton(
+                  btnText: 'LOG IN',
+                  onBtnPressed: () => loginPressed(),
+                )
+              ],
+            ),
           ),
         ));
   }
