@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:abp_tubes_2/pages/detail_hiburan.dart';
 
 class Hiburan {
   final String id;
@@ -102,7 +103,17 @@ class _HiburanScreenState extends State<HiburanScreen> {
                                 ],
                               ),
                             ),
-                            onTap: () {}));
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const DetailHiburan(),
+                                  settings: RouteSettings(
+                                    arguments: data[index],
+                                  ),
+                                ),
+                              );
+                            }));
                   });
             } else if (snapshot.hasError) {
               return Text("${snapshot.error}");
