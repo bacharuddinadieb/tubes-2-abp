@@ -55,10 +55,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late Future<Home> futureData;
-  static const LatLng _kMapCenter =
-      LatLng(-6.972644905292967, 107.63036234012655);
-  static const CameraPosition _kInitialPosition =
-      CameraPosition(target: _kMapCenter, zoom: 20.0, tilt: 0, bearing: 0);
 
   @override
   void initState() {
@@ -74,53 +70,31 @@ class _HomeScreenState extends State<HomeScreen> {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               Home? data = snapshot.data;
-              return SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Image.network(data!.gambar),
-                    Container(
-                      margin: EdgeInsets.all(16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            data!.nama,
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500, fontSize: 24),
-                          ),
-                          Text(
-                            data!.alamat,
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(top: 2),
-                            child: Text(data!.deskripsi),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.symmetric(
-                              vertical: 10,
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  margin:
-                                      const EdgeInsets.symmetric(vertical: 5),
-                                  padding: const EdgeInsets.all(5),
-                                  height: MediaQuery.of(context).size.width,
-                                  child: GoogleMap(
-                                    initialCameraPosition: _kInitialPosition,
-                                    markers: _createMarker(),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
+              return Column(
+                children: [
+                  Image.network(data!.gambar),
+                  Container(
+                    margin: EdgeInsets.all(16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          data!.nama,
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500, fontSize: 24),
+                        ),
+                        Text(
+                          data!.alamat,
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(top: 2),
+                          child: Text(data!.deskripsi),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
               );
             } else if (snapshot.hasError) {
               return Text("${snapshot.error}");
@@ -130,15 +104,5 @@ class _HomeScreenState extends State<HomeScreen> {
             );
           }),
     );
-  }
-
-  Set<Marker> _createMarker() {
-    return {
-      const Marker(
-        markerId: MarkerId('marker_1'),
-        infoWindow: InfoWindow(title: 'Telkom University'),
-        position: LatLng(-6.972644905292967, 107.63036234012655),
-      ),
-    };
   }
 }
