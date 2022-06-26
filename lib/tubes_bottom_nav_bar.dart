@@ -52,6 +52,7 @@ class _TubesBottomNavBarState extends State<TubesBottomNavBar> {
     return Scaffold(
       appBar: AppBar(
         title: Text(_appBarTitle),
+        backgroundColor: Colors.deepPurple,
       ),
       body: _pages.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(

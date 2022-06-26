@@ -2,6 +2,7 @@
 
 import 'dart:convert';
 
+import 'package:abp_tubes_2/pages/register_screen.dart';
 import 'package:abp_tubes_2/tubes_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -100,6 +101,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 RoundedButton(
                   btnText: 'LOG IN',
                   onBtnPressed: () => loginPressed(),
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              const RegisterScreen(),
+                        ));
+                  },
+                  child: const Text("Register"),
                 )
               ],
             ),

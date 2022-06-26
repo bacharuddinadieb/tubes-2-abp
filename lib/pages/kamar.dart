@@ -87,6 +87,7 @@ class _KamarScreenState extends State<KamarScreen> {
                   padding: marginTen,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Expanded(
                         child: InkWell(
@@ -154,9 +155,10 @@ class _KamarScreenState extends State<KamarScreen> {
                                       size: const Size.fromRadius(
                                           48), // Image radius
                                       child: Image.network(
-                                          baseUrl +
-                                              "storage/${listRoom[index].photos[0].text}",
-                                          fit: BoxFit.fitWidth),
+                                        baseUrl +
+                                            "storage/${listRoom[index].photos[0].text}",
+                                        fit: BoxFit.fitWidth,
+                                      ),
                                     ),
                                   )),
                               Row(

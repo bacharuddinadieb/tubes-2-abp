@@ -4,8 +4,9 @@
         android:label="abp_tubes_2"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
-        <meta-data android:name="com.google.android.geo.API_KEY"
-               android:value="AIzaSyBccSmEIcRuC9O3TeuKJZ9Vv4GjnTqtalo"/>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAowyTGYPPMpDNixM93jbd6BnzMCDZiMug" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
