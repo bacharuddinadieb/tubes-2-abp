@@ -1,3 +1,6 @@
+import 'package:abp_tubes_2/pages/transaksiballroom.dart';
+import 'package:abp_tubes_2/pages/transaksikamar.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class TransaksiScreen extends StatefulWidget {
@@ -8,8 +11,22 @@ class TransaksiScreen extends StatefulWidget {
 }
 
 class _TransaksiScreenState extends State<TransaksiScreen> {
+  List<Widget> transactionPageList = [
+    const TransaksiKamar(),
+    const TransaksiBallroom(),
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return Text('Transaksi');
+    return CarouselSlider.builder(
+      itemCount: transactionPageList.length,
+      itemBuilder: (context, index, realIndex) {
+        return transactionPageList.elementAt(index);
+      },
+      options: CarouselOptions(
+        height: MediaQuery.of(context).size.height,
+        viewportFraction: 1,
+      ),
+    );
   }
 }

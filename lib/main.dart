@@ -1,9 +1,14 @@
 import 'package:abp_tubes_2/pages/login_screen.dart';
 import 'package:abp_tubes_2/pages/register_screen.dart';
 import 'package:abp_tubes_2/tubes_bottom_nav_bar.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 void main() {
+  if (defaultTargetPlatform == TargetPlatform.android) {
+    AndroidGoogleMapsFlutter.useAndroidViewSurface = true;
+  }
   runApp(const MyApp());
 }
 

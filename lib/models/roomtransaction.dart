@@ -1,40 +1,42 @@
+import 'package:abp_tubes_2/models/room.dart';
+
 class RoomTransaction {
+  int? id;
   String? fromDate;
   String? toDate;
+  int? price;
+  int? paymentStatus;
+  String? status;
   int? customerId;
   int? roomId;
-  String? updatedAt;
   String? createdAt;
-  int? id;
+  String? updatedAt;
+  Room? room;
 
   RoomTransaction(
-      {this.fromDate,
+      {this.id,
+      this.fromDate,
       this.toDate,
+      this.price,
+      this.paymentStatus,
+      this.status,
       this.customerId,
       this.roomId,
-      this.updatedAt,
       this.createdAt,
-      this.id});
+      this.updatedAt,
+      this.room});
 
   RoomTransaction.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
     fromDate = json['fromDate'];
     toDate = json['toDate'];
+    price = json['price'];
+    paymentStatus = json['payment_status'];
+    status = json['status'];
     customerId = json['customer_id'];
     roomId = json['room_id'];
-    updatedAt = json['updated_at'];
     createdAt = json['created_at'];
-    id = json['id'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['fromDate'] = this.fromDate;
-    data['toDate'] = this.toDate;
-    data['customer_id'] = this.customerId;
-    data['room_id'] = this.roomId;
-    data['updated_at'] = this.updatedAt;
-    data['created_at'] = this.createdAt;
-    data['id'] = this.id;
-    return data;
+    updatedAt = json['updated_at'];
+    room = json['room'] != null ? Room.fromJson(json['room']) : null;
   }
 }

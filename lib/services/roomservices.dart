@@ -52,9 +52,28 @@ class RoomService {
       return null;
     }
   }
+
+  static Future<List<RoomTransaction>> getListTransaction(int userId) async {
+    var uri = Uri.parse(URL + 'api/room/transaction?userId=$userId');
+
+    final response = await http.get(uri);
+
+    if (response.statusCode == 200) {
+      return parseRoomTransaction(response.body);
+    } else {
+      return [];
+    }
+  }
 }
 
 List<Room> parseRoom(String responseBody) {
   final parsed = json.decode(responseBody).cast<Map<String, dynamic>>();
   return parsed.map<Room>((json) => Room.fromJson(json)).toList();
+}
+
+List<RoomTransaction> parseRoomTransaction(String responseBody) {
+  final parsed = json.decode(responseBody).cast<Map<String, dynamic>>();
+  return parsed
+      .map<RoomTransaction>((json) => RoomTransaction.fromJson(json))
+      .toList();
 }

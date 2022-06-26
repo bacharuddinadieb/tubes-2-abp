@@ -270,7 +270,7 @@ class _DetailKamarState extends State<DetailKamar> {
                                     color: Colors.grey,
                                   ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
                         ),
