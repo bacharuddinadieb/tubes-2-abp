@@ -155,50 +155,53 @@ class _BallroomScreenState extends State<BallroomScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Container(
-                                    padding: EdgeInsets.all(3),
-                                    margin: const EdgeInsets.symmetric(
-                                      horizontal: 5,
+                                    color: Colors.green,
+                                    child: const Padding(
+                                      padding: EdgeInsets.all(2),
+                                      child: Text(
+                                        "Breakfast",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
                                     ),
-                                    child: Row(
-                                      children: [
-                                        Text(
-                                          listBallRoom[index].name,
-                                          style: TextStyle(fontSize: 25),
-                                        ),
-                                      ],
+                                    margin: const EdgeInsets.only(
+                                        top: 10, left: 10),
+                                  ),
+                                  Container(
+                                    color: Colors.green,
+                                    child: const Padding(
+                                      padding: EdgeInsets.all(2),
+                                      child: Text(
+                                        "Wi-Fi",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
                                     ),
+                                    margin: const EdgeInsets.only(
+                                        top: 10, left: 10),
                                   ),
                                 ],
                               ),
                               Container(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 8),
                                 child: Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Container(
                                       margin: const EdgeInsets.only(right: 5),
-                                      child:
-                                          const Text("Equipment avability: "),
+                                      child: const Icon(
+                                        Icons.hotel,
+                                      ),
                                     ),
                                     Text(
-                                      listBallRoom[index].facility,
-                                      style:
-                                          listBallRoom[index].facility == "yes"
-                                              ? TextStyle(
-                                                  backgroundColor: Colors.green,
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.bold,
-                                                )
-                                              : TextStyle(
-                                                  backgroundColor: Colors.red,
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
+                                      listBallRoom[index].floor,
+                                      style: const TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ],
                                 ),
-                                margin: EdgeInsets.all(5),
+                                margin: const EdgeInsets.symmetric(
+                                  horizontal: 10,
+                                ),
                               ),
                               Container(
                                 margin: const EdgeInsets.only(bottom: 10),
@@ -235,9 +238,7 @@ class _BallroomScreenState extends State<BallroomScreen> {
                                                 color: Colors.blue,
                                               ),
                                               Text(
-                                                listBallRoom[index]
-                                                    .capacity
-                                                    .toString(),
+                                                listBallRoom[index].name,
                                               ),
                                             ],
                                           ),
