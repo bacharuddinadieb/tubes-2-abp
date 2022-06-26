@@ -37,7 +37,7 @@ class BallRoom {
       floor: json['floor'],
       area: json['area'],
       price: json['price'],
-      capacity: json['capactiy'],
+      capacity: json['capaciy'],
       facility: json['facility'],
       createdAt: json['createdAt'],
       updatedAt: json['updatedAt'],
