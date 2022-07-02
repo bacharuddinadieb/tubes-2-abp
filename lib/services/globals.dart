@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-const String baseURL = "http://192.168.1.102:8000/api/"; //emulator localhost
+const String baseURL = "http://192.168.1.106:8000/api/"; //emulator localhost
 const Map<String, String> headers = {"Content-Type": "application/json"};
-const String URL = 'http://192.168.1.102:8000/';
+const String URL = 'http://192.168.1.106:8000/';
 
 errorSnackBar(BuildContext context, String text) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
